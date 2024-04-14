@@ -1,0 +1,177 @@
+% \iffalse meta-comment
+% vim: textwidth=75
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+|
+-------------:| -----------------------------------------------------------
+false-console:| A new LaTeX package
+       Author:| Alfred Burgess
+       E-mail:| aburgess@ucc.asn.au
+      License:| Released under the LaTeX Project Public License v1.3c or later
+          See:| http://www.latex-project.org/lppl.txt
+
+
+Short description:
+A stylesheet for creating console-like output.
+%</readme>
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+-------------:| -----------------------------------------------------------
+false-console:| A new LaTeX package
+       Author:| Alfred Burgess
+       E-mail:| aburgess@ucc.asn.au
+      License:| Released under the GNU Lessor General Public License v3
+          See:| https://www.gnu.org/licenses/lgpl-3.0.en.html
+
+\endpreamble
+\postamble
+
+Copyright (C) 2024 by Alfred Burgess <aburgess@ucc.asn.au>
+
+
+This work is "maintained" (as per LGPL maintenance status) by
+Alfred Burgess.
+
+This work consists of the file false-console.dtx and a Makefile.
+Running "make" generates the derived files README, false-console.pdf and false-console.sty.
+Running "make inst" installs the files in the user's TeX tree.
+Running "make install" installs the files in the local TeX tree.
+
+\endpostamble
+
+\usedir{tex/latex/false-console}
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/false-console}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\usedir{doc/latex/false-console}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{false-console.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{false-console}
+%<*package>
+    [2024/04/14 v1.00 A new LaTeX package]
+%</package>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[a4paper,margin=25mm,left=50mm,nohead]{geometry}
+\usepackage[numbered]{hypdoc}
+\usepackage{\jobname}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.dtx}
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+%\title{\textsf{false-console} --- A new LaTeX package\thanks{This file
+%   describes version \fileversion, last revised \filedate.}
+%}
+%\author{Alfred Burgess\thanks{E-mail: aburgess@ucc.asn.au}}
+%\date{Released \filedate}
+%
+%\maketitle
+%
+%\changes{v1.00}{2024/04/14}{First public release}
+%
+% \begin{abstract}
+% ==== Put abstract text here. ====
+% \end{abstract}
+%
+% \section{Usage}
+%
+% ==== Put descriptive text here. ====
+%
+% \DescribeMacro{\dummyMacro}
+% This macro does nothing.\index{doing nothing|usage} It is merely an
+% example.  If this were a real macro, you would put a paragraph here
+% describing what the macro is supposed to do, what its mandatory and
+% optional arguments are, and so forth.
+%
+% \DescribeEnv{dummyEnv}
+% This environment does nothing.  It is merely an example.
+% If this were a real environment, you would put a paragraph here
+% describing what the environment is supposed to do, what its
+% mandatory and optional arguments are, and so forth.
+%
+%\StopEventually{^^A
+%  \PrintChanges
+%  \PrintIndex
+%}
+%
+% \section{Implementation}
+%
+%    \begin{macrocode}
+%<*package>
+
+%    \end{macrocode}
+% \begin{macro}{\dummyMacro}
+% This is a dummy macro.  If it did anything, we'd describe its
+% implementation here.
+%    \begin{macrocode}
+\newcommand{\dummyMacro}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{dummyEnv}
+% This is a dummy environment.  If it did anything, we'd describe its
+% implementation here.
+%    \begin{macrocode}
+\newenvironment{dummyEnv}{%
+}{%
+%    \end{macrocode}
+% \changes{v1.00a}{2024/04/14}{Added a spurious change log entry to
+%   show what a change \emph{within} an environment definition looks
+%   like.}
+% Don't use |%| to introduce a code comment within a |macrocode|
+% environment.  Instead, you should typeset all of your comments with
+% LaTeX---doing so gives much prettier results.  For comments within a
+% macro/environment body, just do an |\end{macrocode}|, include some
+% commentary, and do another |\begin{macrocode}|.  It's that simple.
+%    \begin{macrocode}
+}
+%    \end{macrocode}
+% \end{environment}
+%
+%    \begin{macrocode}
+\endinput
+%</package>
+%    \end{macrocode}
+%\Finale
