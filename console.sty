@@ -1,0 +1,59 @@
+\usepackage{xcolor}
+\usepackage[macchiato]{catppuccin}
+\RequirePackage{tcolorbox}
+
+\def\hostname{host}
+\def\activeuser{user}
+
+\newcommand{\user}[1]{\renewcommand\activeuser{#1}}
+\newcommand{\host}[1]{\renewcommand\hostname{#1}}
+
+\newcommand{\tab}{\hspace{2em}}
+
+\newcommand{\cmd}{
+  {\scriptsize \cmduser\cmdhost\cmdpath\$ }
+}
+
+\def\activepath{~/}
+\newcommand{\cd}[1]{\renewcommand\activepath{#1}}
+
+\newcommand{\cmduser}{{\color{ctpTeal}\activeuser}}
+\newcommand{\cmdhost}{@{\color{ctpBlue}\hostname}}
+\newcommand{\cmdpath}{{\color{ctpYellow}\:\activepath}}
+\newcommand{\pwd}{ \cmd \activepath \newline }
+
+\newcommand{\gitref}[1]{{\color{ctpYellow}#1}}
+\newcommand{\githead}[1]{{\color{ctpTeal}#1}}
+\newcommand{\gitlog}[6]{
+  {\color{ctpLavender}commit} \gitref{#1}{#6}\newline
+  {\color{ctpTeal}Author:} {\color{ctpGreen}#2} <{\color{ctpPink}#3}>\newline
+  {\color{ctpTeal}Date:} {\color{ctpYellow}#4}\newline
+  {
+    \color{ctpText} #5
+  }\newline
+}
+
+
+
+% Define the 'console' environment with a black background
+\newtcolorbox{consolebox}{%
+    colback=ctpBase, % Background color (adjust the percentage as needed)
+    coltext=ctpText,    % Text color
+    fontupper=\ttfamily\footnotesize, % Typewriter font and small size
+    boxrule=0pt,      % No box rule
+    arc=5pt,          % No rounded corners
+    boxsep=5pt,       % Padding
+    left=0pt,         % No left padding
+    right=0pt,        % No right padding
+    top=2pt,          % Top padding
+    bottom=2pt,       % Bottom padding
+}
+
+% Define the 'console' environment
+\newenvironment{console}{%
+    \begin{consolebox}%
+}{%
+    \end{consolebox}%
+}
+% If you want to customize the appearance further, you can add more styling commands here
+\endinput
